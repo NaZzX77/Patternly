@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: patternly-backend
+  datasource:
+    url: ${PATTERNLY_DB_URL}
+    username: ${PATTERNLY_DB_USERNAME}
+    password: ${PATTERNLY_DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+  flyway:
+    enabled: true
+
+server:
+  port: ${SERVER_PORT:8080}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      probes:
+        enabled: true

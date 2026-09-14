@@ -5,4 +5,4 @@
 
 The empty repository now has a documented product direction, conceptual architecture, initial repository boundaries, and the first architecture decision record. No executable application code or infrastructure has been introduced.
 
-The recommended next milestone is backend initialization: create the Spring Boot modular-monolith project, establish its package/module layout, add health-oriented verification, and decide the database migration baseline before modelling persistent entities.
+The backend foundation milestone is complete; its details and verification commands are in `docs/development/backend-foundation.md`. The next milestone is to design the first persistent domain model and its initial Flyway migration, beginning with skills and questions—not to build feature flows yet.

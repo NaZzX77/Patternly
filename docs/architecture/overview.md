@@ -23,6 +23,12 @@ PostgreSQL
 
 The Spring Boot application starts as one deployable application with internally separated modules. This gives us clear domain boundaries without the operational cost, distributed-data concerns, and debugging complexity of microservices.
 
+## Implemented backend foundation
+
+`backend/` is now a Maven-based Spring Boot 4.1.1 application using Java 21 as its project baseline. It exposes only the standard Actuator health endpoint and has no business controllers or domain entities. Its database connection is configured exclusively through environment variables; PostgreSQL is the intended runtime database and Flyway owns future schema changes.
+
+The initial source boundaries are `common`, `learning`, `practice`, `question`, `skill`, and `user`. They are empty Git-tracked directories, not artificial Java classes. This signals ownership boundaries without introducing abstractions before their first real use.
+
 ## Component responsibilities
 
 | Component | Responsibility | Why it exists |

@@ -4,7 +4,7 @@ Patternly is a pattern-centric adaptive learning and interview-preparation platf
 
 ## Current status
 
-This repository is in its architecture-initialization phase. No application features, dependencies, or runtime services have been added yet.
+The backend foundation is initialized. It is runnable as a Spring Boot modular monolith, with PostgreSQL/Flyway configuration and a standard health endpoint. Product features and domain tables have not been added.
 
 ## Planned shape
 
@@ -22,6 +22,15 @@ Redis, RabbitMQ, and a Python AI service are intentionally deferred until they s
 - `infrastructure/` — future Docker/deployment configuration
 - `docs/` — architecture, decisions, development guidance, and progress records
 
-## Next step
+## Run the backend
 
-Initialize the Spring Boot backend as a modular monolith and establish its first domain modules, configuration, tests, and database-migration baseline.
+See [backend setup](docs/development/backend-foundation.md) for required environment variables and commands. Once PostgreSQL is available locally:
+
+```powershell
+$env:PATTERNLY_DB_URL = "jdbc:postgresql://localhost:5432/patternly"
+$env:PATTERNLY_DB_USERNAME = "patternly"
+$env:PATTERNLY_DB_PASSWORD = "choose-a-local-password"
+.\backend\mvnw.cmd -f backend\pom.xml spring-boot:run
+```
+
+Then request `http://localhost:8080/actuator/health`.
